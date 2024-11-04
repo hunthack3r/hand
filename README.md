@@ -37,7 +37,7 @@ curl --http1.1 --silent --output /dev/null \
 
 Web Cache Poisoning
 ```
-X-Forwarded-Host: evil.com`  
+X-Forwarded-Host: evil.com
 X-Host: evil.com
 X-Forwarded-Server: evil.com
 ```
